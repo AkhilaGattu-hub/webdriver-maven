@@ -1,0 +1,35 @@
+package webdrivermaven;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Test;
+
+public class logintest {
+public static WebDriver driver;
+
+@BeforeSuite
+public void setup() {
+	
+	driver = new FirefoxDriver();
+	
+}
+@Test
+public void dologin() {
+	driver.get("http://gmail.com");
+	driver.findElement(By.id("identifierId")).sendKeys("akhilagattu1994@gmail.com");
+	driver.findElement(By.name("password")).sendKeys("Akhila1994@");
+
+	
+	
+}
+@AfterSuite
+
+public void teardown() {
+	driver.quit()
+;
+	}
+}
